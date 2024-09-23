@@ -8,7 +8,6 @@ def wd_matrix_mul(m1: List[List[int]], m2: List[List[int]]) -> List[List[int]]:
     :return:
     """
 
-    result = []
     # x1 = (m1[0][0] * m2[0][0] + m1[0][1] * m2[1][0])
     # y1 = (m1[1][0] * m2[0][0] + m1[1][1] * m2[1][0])
     # x2 = (m1[0][0] * m2[0][1] + m1[0][1] * m2[1][1])
@@ -20,9 +19,8 @@ def wd_matrix_mul(m1: List[List[int]], m2: List[List[int]]) -> List[List[int]]:
     # result.append([y1, y2])
 
     # Perform 2x2 matrix multiplication using a loop
-    result = [[sum(m1[i][k] * m2[k][j] for k in range(2)) for j in range(2)] for i in range(2)]
 
-    return result
+    return [[sum(m1[i][k] * m2[k][j] for k in range(2)) for j in range(2)] for i in range(2)]
 
 def td_matrix_mul(m1: List[List[int]], m2: List[List[int]]) -> List[List[int]]:
     """
@@ -33,11 +31,7 @@ def td_matrix_mul(m1: List[List[int]], m2: List[List[int]]) -> List[List[int]]:
     :return:
     """
 
-    result = []
-
-    result = [[sum(m1[i][k] * m2[k][j] for k in range(3)) for j in range(3)] for i in range(3)]
-
-    return result
+    return [[sum(m1[i][k] * m2[k][j] for k in range(3)) for j in range(3)] for i in range(3)]
 
 def display_matrix(matrix: List[List[int]]) -> None:
     for row in matrix:
