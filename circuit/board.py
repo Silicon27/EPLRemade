@@ -44,6 +44,14 @@ class Board:
         if self.displayonchange:
             self.display()
 
+    def NAND(self, *inputs):
+        self.value = not all(inputs)
+        self.lastop = "\033[96mNAND\033[0m"
+        if self.displayonchange:
+            self.display()
+
+    
+
     def display(self):
         if self.value:
             print(f"{self.value}:  [\033[42m \033[0m]            last operation: {self.lastop}")
@@ -62,3 +70,5 @@ board.AND(True, False) # False
 board.AND(True, True) # True
 board.XOR(True, False) # True
 board.XOR(True, True) # False
+board.NAND(True, False) # True
+board.NAND(True, True) # False
