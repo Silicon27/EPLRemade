@@ -1,6 +1,7 @@
 import time
 from typing import Callable
 
+
 def scache(maxsize=10):
     """
     Creates a simple cache for a function.
@@ -23,8 +24,6 @@ def scache(maxsize=10):
     :param maxsize:
     :return:
     """
-
-
 
     def wrapper(func, *args, **kwargs):
         cache = {}
@@ -69,7 +68,7 @@ class TTLCache:
         """
 
         self.cache = {}
-        self.setttl = ttl # Set TTL # NOQA
+        self.setttl = ttl  # Set TTL # NOQA
         self.maxsize = maxsize
         self.timestamps = {}
         self.when = when
@@ -102,8 +101,3 @@ class TTLCache:
                 return self.cache[args]
 
         return wrapper
-
-
-
-
-

@@ -9,6 +9,7 @@ Not done!
 from function import Function
 import re
 
+
 class Derivative:
     """
     This class is used to represent the derivative of a function.
@@ -24,12 +25,10 @@ class Derivative:
 
         note NOT DONE!
         """
+
         def split_function():
 
-
-
-
-            pattern = r'\b\d*[a-zA-Z]\^\d+\b|\b\d+[a-zA-Z]\b|[+-]'
+            pattern = r"\b\d*[a-zA-Z]\^\d+\b|\b\d+[a-zA-Z]\b|[+-]"
 
             matches = re.findall(pattern, self.function.function)
             if matches[-1] in ["+", "-"]:
@@ -61,6 +60,7 @@ class Sderive:
     """
     Single derivative aka, derivative for a single term.
     """
+
     def __init__(self, function: Function):
         self.function = function
         self.derivative = None
@@ -75,27 +75,29 @@ class Sderive:
             return
 
         if "^" not in self.function.function:
-            self.derivative = re.sub(r'[a-zA-Z]', '', self.function.function)
+            self.derivative = re.sub(r"[a-zA-Z]", "", self.function.function)
             return
         else:
             # get where a character is in a string
-            positions = [pos for pos, char in enumerate(self.function.function) if char == "^"]
+            positions = [
+                pos for pos, char in enumerate(self.function.function) if char == "^"
+            ]
 
             # get the variable before the "^"
             var = self.function.function[positions[0] - 1]
 
             # The exponent is the rest of the string after the "^"
-            exponent = self.function.function[positions[0] + 1:]
+            exponent = self.function.function[positions[0] + 1 :]
 
             try:
                 # Get the coefficient
                 if self.function.function[positions[0] - 2] == "-":
-                    coefficient = -int(self.function.function[:positions[0] - 1])
+                    coefficient = -int(self.function.function[: positions[0] - 1])
 
                 if self.function.function == "":
                     coefficient = 1
                 else:
-                    coefficient = int(self.function.function[:positions[0] - 1])
+                    coefficient = int(self.function.function[: positions[0] - 1])
             except Exception as e:
                 coefficient = 1
 
@@ -114,9 +116,7 @@ class Sderive:
         return str(self.derivative)
 
 
-
-
-myfunc = Function("x^2") # derivative is 6x
+myfunc = Function("x^2")  # derivative is 6x
 
 myderivative = Sderive(myfunc)
 

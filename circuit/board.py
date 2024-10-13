@@ -1,7 +1,9 @@
 """
 By linking the Output class with the nodes of the Board class, we can create a circuit board that can be used to simulate circuits.
 """
+
 import os
+
 
 class Output:
     def __init__(self, value: bool = False):
@@ -9,6 +11,7 @@ class Output:
 
     def get_value(self):
         return self.value
+
 
 class Board:
     def __init__(self, output: Output = Output(), displayonchange: bool = True):
@@ -50,25 +53,27 @@ class Board:
         if self.displayonchange:
             self.display()
 
-    
-
     def display(self):
         if self.value:
-            print(f"{self.value}:  [\033[42m \033[0m]            last operation: {self.lastop}")
+            print(
+                f"{self.value}:  [\033[42m \033[0m]            last operation: {self.lastop}"
+            )
         else:
-            print(f"{self.value}: [\033[41m \033[0m]            last operation: {self.lastop}")
+            print(
+                f"{self.value}: [\033[41m \033[0m]            last operation: {self.lastop}"
+            )
 
 
 # Test them
 board = Board(Output(True), displayonchange=True)
 board.display()
-board.NOT() # False
-board.OR(True, False) # True
-board.OR(False, False) # False
-board.OR(False, True) # True
-board.AND(True, False) # False
-board.AND(True, True) # True
-board.XOR(True, False) # True
-board.XOR(True, True) # False
-board.NAND(True, False) # True
-board.NAND(True, True) # False
+board.NOT()  # False
+board.OR(True, False)  # True
+board.OR(False, False)  # False
+board.OR(False, True)  # True
+board.AND(True, False)  # False
+board.AND(True, True)  # True
+board.XOR(True, False)  # True
+board.XOR(True, True)  # False
+board.NAND(True, False)  # True
+board.NAND(True, True)  # False

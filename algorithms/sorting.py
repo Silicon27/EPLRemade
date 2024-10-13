@@ -53,6 +53,7 @@ This file contains the following sorting algorithms:
 
 (Yes, even the joke ones are included)
 """
+
 import threading
 from typing import List
 import time
@@ -77,6 +78,7 @@ def quicksort(arr: List[int]) -> List[int]:
 
     return quicksort(left) + middle + quicksort(right)
 
+
 def quantum_bogo_sort(arr: List[int]) -> List[int]:
     """
     Quantum Bogo Sort is a theoretical sorting algorithm that uses quantum mechanics to sort the elements.
@@ -85,7 +87,10 @@ def quantum_bogo_sort(arr: List[int]) -> List[int]:
     :param arr: List[int] - The list of numbers to sort.
     :return: List[int] - The sorted list.
     """
-    return arr  # The elements are already in a superposition of sorted and unsorted states
+    return (
+        arr  # The elements are already in a superposition of sorted and unsorted states
+    )
+
 
 def bogo_sort(arr: List[int]) -> List[int]:
     """
@@ -99,6 +104,7 @@ def bogo_sort(arr: List[int]) -> List[int]:
         random.shuffle(arr)
     return arr
 
+
 def miracle_sort(arr: List[int]) -> List[int]:
     """
     Miracle Sort is a humorous concept that suggests a sorting algorithm that sorts elements instantly.
@@ -108,6 +114,7 @@ def miracle_sort(arr: List[int]) -> List[int]:
     :return: List[int] - The sorted list.
     """
     return sorted(arr)
+
 
 def sleep_sort(arr: List[int]) -> List[int]:
     """

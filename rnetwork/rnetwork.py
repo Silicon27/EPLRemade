@@ -13,4 +13,5 @@ def ping(host: str, count: int = 4) -> str:
     :arg count: int - The number of packets to send. Default is 4.
     """
     import os
+
     return os.popen(f"ping -c {count} {host}").read()

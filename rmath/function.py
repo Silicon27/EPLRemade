@@ -2,6 +2,7 @@
 function.py - This file contains the function class which is used to represent a function in the rmath library.
 """
 
+
 class Function:
     """
     This class is used to represent a function in the rmath library.
@@ -15,4 +16,3 @@ class Function:
 
     def __repr__(self):
         return str(self.function)
-

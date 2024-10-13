@@ -4,6 +4,7 @@ EPL (Every Python Library) - rmath
 This module is a collection of functions that are used in the field of mathematics.
 
 """
+
 from typing import overload, List
 
 
@@ -95,6 +96,7 @@ def integral(func, a, b, n=1000):
         integral_sum += func(a + i * h) * h
     return integral_sum
 
+
 def vector_sum(*vectors):
     """
     Returns the sum of vectors.
@@ -109,7 +111,3 @@ def vector_sum(*vectors):
             raise TypeError("All arguments must be lists.")
 
     return [sum(vector[i] for vector in vectors) for i in range(len(vectors[0]))]
-
-
-
-

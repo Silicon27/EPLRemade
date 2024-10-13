@@ -1,12 +1,8 @@
 import typing
 
 @typing.overload
-def add(*v: typing.Union[int, float]) -> float:
-    ...
-
-def add(*v: float) -> float:
-    ...
-
+def add(*v: typing.Union[int, float]) -> float: ...
+def add(*v: float) -> float: ...
 def pi(n_terms: int = ..., use_accuracy: bool = ...) -> float:
     """
     Returns the value of pi (π).
@@ -43,7 +39,9 @@ def factorial(n: int) -> int:
     """
     ...
 
-def integral(f: typing.Callable[[float], float], a: float, b: float, n: int = ...) -> float:
+def integral(
+    f: typing.Callable[[float], float], a: float, b: float, n: int = ...
+) -> float:
     """
     Approximates the integral of a function.
 

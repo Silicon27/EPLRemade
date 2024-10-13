@@ -1,6 +1,7 @@
 import typing
 from tokenizer import ConvertToToken
 
+
 class ComplexNum:
     def __init__(self, *constants):
         self.constants = constants
@@ -15,12 +16,15 @@ class ComplexNum:
             raise ValueError(f"Assigning error: {e}")
 
     def solve(self, equation):
-        tokens = ConvertToToken(["+", "-", "*", "/"], equation, ["+", "-", "*", "/"], ["+", "-", "*", "/"])
+        tokens = ConvertToToken(
+            ["+", "-", "*", "/"], equation, ["+", "-", "*", "/"], ["+", "-", "*", "/"]
+        )
         tokenized_output, tokenized_dict, tokenized_output_w_spaces = tokens.tokenize()
         for j, i in enumerate(tokenized_output):
             if i in self.variables:
                 tokenized_output[j] = str(self.variables[i][0][0])
         print(eval(str("".join(tokenized_output))))
+
 
 myvalues = ComplexNum(1, 2, 3)
 myvalues.set_var("a", [1])

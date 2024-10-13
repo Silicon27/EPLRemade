@@ -14,8 +14,9 @@ class ConvertToToken:
         tokenized_dict = []
         tokenized_output_w_spaces = []
 
-
-        temp = re.split(rf"\b({'|'.join(map(re.escape, self.keywords))})\b|([^\w\s])", self.string)
+        temp = re.split(
+            rf"\b({'|'.join(map(re.escape, self.keywords))})\b|([^\w\s])", self.string
+        )
 
         filtered_list = [x for x in temp if x and x.strip()]
 
@@ -35,8 +36,14 @@ class ConvertToToken:
 
         for ele in detail:
             tokenized_dict.append(
-                {"value": ele,
-                 "type": "SYMBOL" if ele in self.symbol else "KEYWORD" if ele in self.keywords else "IDENTIFIER"}
+                {
+                    "value": ele,
+                    "type": (
+                        "SYMBOL"
+                        if ele in self.symbol
+                        else "KEYWORD" if ele in self.keywords else "IDENTIFIER"
+                    ),
+                }
             )
 
         # Iterate over a copy of the list to avoid modifying it while iterating
