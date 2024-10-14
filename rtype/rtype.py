@@ -4,6 +4,43 @@ EPL (Every Python Library) - rtype
 This module is a collection of types that can be assigned to variables.
 """
 
+class Callable:
+    """
+    This class is used to check if a variable is callable.
+
+    :arg var: any - The variable to check if it is callable.
+    """
+
+    def __init__(self, var):
+        self.var = var
+
+    def __bool__(self):
+        return callable(self.var)
+
+    def __str__(self):
+        return f"Callable({self.var})"
+
+    def __repr__(self):
+        return f"Callable({self.var})"
+
+class Any:
+    """
+    This class is used to check if a variable is any.
+
+    :arg var: any - The variable to check if it is any.
+    """
+
+    def __init__(self, var):
+        self.var = var
+
+    def __bool__(self):
+        return True
+
+    def __str__(self):
+        return f"Any({self.var})"
+
+    def __repr__(self):
+        return f"Any({self.var})"
 
 class Iterable:
     """
